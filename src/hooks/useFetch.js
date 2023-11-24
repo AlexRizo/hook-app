@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useCounter } from "./useCounter";
 
 export const useFetch = (url) => {
 
+    const { counter, increment } = useCounter(1);
+    
     const [state, setState] = useState({
         data: null,
         isLoading: true,
@@ -20,7 +23,8 @@ export const useFetch = (url) => {
         setState({
             data,
             isLoading: false,
-            hasError: null,
+            hasError: `${url} not found.`,
+            // hasError: null,
         });
     };
 
@@ -28,9 +32,14 @@ export const useFetch = (url) => {
         getFetch();
     }, [url]);
 
+    useEffect(() => {
+        getFetch();
+    }, [counter]);
+
     return {
         data: state.data,
         isLoading: state.isLoading,
         hasError: state.hasError,
+        increment
     };
 };
