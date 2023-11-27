@@ -23,8 +23,8 @@ export const useFetch = (url) => {
         setState({
             data,
             isLoading: false,
-            hasError: `${url} not found.`,
-            // hasError: null,
+            // hasError: `${url} not found.`,
+            hasError: null,
         });
     };
 

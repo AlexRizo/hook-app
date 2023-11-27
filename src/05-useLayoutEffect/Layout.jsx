@@ -1,9 +1,7 @@
 import { useFetch } from "../hooks";
-import { LoadingQuote } from "./LoadingQuote";
-import { Quote } from "./Quote";
-import { ErrorQuote } from "./ErrorQuote";
+import { LoadingQuote, Quote, ErrorQuote } from "../03-examples";
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
     const { data, isLoading, hasError, increment } = useFetch(
         `https://api.breakingbadquotes.xyz/v1/quotes/`
     );
@@ -35,4 +33,4 @@ export const MultipleCustomHooks = () => {
     );
 };
 
-export default MultipleCustomHooks;
+export default Layout;
