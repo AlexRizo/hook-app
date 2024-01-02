@@ -1,6 +1,6 @@
 import { TodoList } from "./TodoList";
 import { TodoForm } from "./TodoForm";
-import { useTodo } from "./useTodo";
+import { useTodos } from "./useTodo";
 
 const init = () => {
     return JSON.parse(localStorage.getItem('todos')) || [];
@@ -8,11 +8,11 @@ const init = () => {
 
 export const TodoApp = () => {
     
-    const { todos, handleDeleteTodo, handleToggleTodo, handleNewTodo } = useTodo([], init);
+    const { todos, totalTodos, pendingTodos, handleDeleteTodo, handleToggleTodo, handleNewTodo } = useTodos([], init);
 
     return (
         <>
-            <h1>TodoApp 1 <small>Pendientes: 1</small></h1>
+            <h1>Total: { totalTodos } <small>Pendientes: { pendingTodos }</small></h1>
             <hr />
 
             <div className="row">
