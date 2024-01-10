@@ -8,7 +8,14 @@ const init = () => {
 
 export const TodoApp = () => {
     
-    const { todos, totalTodos, pendingTodos, handleDeleteTodo, handleToggleTodo, handleNewTodo } = useTodos([], init);
+    const { 
+        todos,
+        totalTodos,
+        pendingTodos,
+        handleDeleteTodo,
+        handleToggleTodo,
+        handleNewTodo
+    } = useTodos([], init);
 
     return (
         <>
@@ -18,7 +25,7 @@ export const TodoApp = () => {
             <div className="row">
                 <div className="col-7">
                     {/* TodoList */}
-                    <TodoList todos={ todos } onDeleteTodo={ handleDeleteTodo } onToggleTodo={ handleToggleTodo }></TodoList>
+                    <TodoList todos={ todos } onDeleteTodo={ handleDeleteTodo } onToggleTodo={ handleToggleTodo }/>
                 </div>
 
                 <div className="col-5">
@@ -26,7 +33,7 @@ export const TodoApp = () => {
                     <hr />
 
                     {/* TodoForm */}
-                    <TodoForm onNewTodo={ handleNewTodo }></TodoForm>
+                    <TodoForm onNewTodo={ handleNewTodo }/>
                 </div>
             </div>
         </>
