@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <HomePage/> debe de mostrar el componente correctamente (sin el usuario) 1`] = `
+[
+  <pre
+    aria-label="pre"
+  >
+    null
+  </pre>,
+]
+`;

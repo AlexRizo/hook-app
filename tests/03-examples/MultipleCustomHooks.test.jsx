@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import MultipleCustomHooks from "../../src/03-examples/MultipleCustomHooks";
 import { useFetch } from "../../src/hooks/useFetch";
 
@@ -37,5 +37,22 @@ describe('Purbeas en <MultipleCustomHooks/>', () => {
 
         const button = screen.getByRole('button', { name: 'Next Quote' });
         expect(button.disabled).toBeFalsy();
+    });
+
+    test('should llamar la función de incrementar', () => {
+        const increment = jest.fn();
+        
+        useFetch.mockReturnValue({
+            data: [{author: 'David', quote: 'Hola mundo'}],
+            loading: false,
+            hasError: null,
+            increment
+        });
+
+        render(<MultipleCustomHooks/>);
+        const button = screen.getByRole('button', { name: 'Next Quote' });
+        fireEvent.click(button);
+
+        expect(increment).toHaveBeenCalledTimes(1);
     });
 });
