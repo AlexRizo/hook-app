@@ -5,7 +5,7 @@ import './index.css'
 
 import Router from './09-useContext/Router';
 
-const router = Router();
+
 
 // import { HooksApp } from './HooksApp'
 // import { CounterApp } from './components/CounterApp'
@@ -25,6 +25,6 @@ const router = Router();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={ router }/>
+        <RouterProvider router={ createBrowserRouter(Router) }/>
     </React.StrictMode>,
 );
